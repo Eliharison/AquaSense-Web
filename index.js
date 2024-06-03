@@ -27,7 +27,11 @@ app.use((req, res, next) => {
 app.use(express.urlencoded({ extended: false}))
 app.use(express.json())
 
-mongoose.connect("mongodb://localhost:27017/aquasense")
+const mongoURI = "mongodb+srv://ambiente-teste:fatec-projetos@projetos-node.8tzv6mq.mongodb.net/?retryWrites=true&w=majority&appName=projetos-node";
+
+mongoose.connect(mongoURI)
+.then(() => console.log("MongoDB conectado com sucesso!"))
+.catch(err => console.error("Erro de conexão MongoDB:", err));
 
 app.set("view engine", "ejs")
 
