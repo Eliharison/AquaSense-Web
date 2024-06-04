@@ -44,7 +44,7 @@ app.get("/", function(req, res) {
     res.render("index")
 })
 
-const port = process.env.PORT || 4000
+const port = process.env.PORT
 app.listen(port, function (erro) {
     if (erro) {
         console.log("Ocorreu um erro!")
