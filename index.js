@@ -1,6 +1,7 @@
 import express from "express"
 import mongoose from "mongoose"
 import session from "express-session"
+const config = require('./config');
 
 import UsersController from "./controllers/UsersController.js"
 import HomeController from "./controllers/HomeController.js"
@@ -27,9 +28,7 @@ app.use((req, res, next) => {
 app.use(express.urlencoded({ extended: false}))
 app.use(express.json())
 
-const mongoURI = "mongodb+srv://ambiente-teste:fatec-projetos@projetos-node.8tzv6mq.mongodb.net/?retryWrites=true&w=majority&appName=projetos-node";
-
-mongoose.connect(mongoURI)
+mongoose.connect(config.mongoURI)
 .then(() => console.log("MongoDB conectado com sucesso!"))
 .catch(err => console.error("Erro de conexão MongoDB:", err));
 
