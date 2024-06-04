@@ -1,7 +1,7 @@
 import express from "express"
 import mongoose from "mongoose"
 import session from "express-session"
-const config = require('./config');
+import config from "./config.js"
 
 import UsersController from "./controllers/UsersController.js"
 import HomeController from "./controllers/HomeController.js"
