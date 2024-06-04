@@ -1,7 +1,7 @@
 import express from "express"
 import mongoose from "mongoose"
 import session from "express-session"
-import config from "./config.js"
+import { mongoURI } from './config.js';
 
 import UsersController from "./controllers/UsersController.js"
 import HomeController from "./controllers/HomeController.js"
@@ -28,7 +28,7 @@ app.use((req, res, next) => {
 app.use(express.urlencoded({ extended: false}))
 app.use(express.json())
 
-mongoose.connect(config.mongoURI)
+mongoose.connect(mongoURI)
 .then(() => console.log("MongoDB conectado com sucesso!"))
 .catch(err => console.error("Erro de conexão MongoDB:", err));
 
